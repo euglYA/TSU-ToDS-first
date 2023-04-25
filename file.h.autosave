@@ -1,0 +1,14 @@
+
+#ifndef FILE_H
+#define FILE_H
+
+
+
+
+class FileStatus
+{
+public:
+    FileStatus();
+};
+
+#endif // FILE_H
