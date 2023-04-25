@@ -13,6 +13,19 @@ FileInfo::FileInfo(const QString filePath) {
     }
     else {
         _size = 0;
+        _path = filePath;
         _state = fileStates::not_exist;
     }
+}
+
+QString FileInfo::getPath() const {
+    return _path;
+}
+
+int FileInfo::getSize() const {
+    return _size;
+}
+
+FileInfo::fileStates FileInfo::getState() const {
+    return _state;
 }

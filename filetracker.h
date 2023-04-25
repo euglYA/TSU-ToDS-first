@@ -1,14 +1,22 @@
-
 #ifndef FILETRACKER_H
 #define FILETRACKER_H
+#include <QMap>
+#include <QVector>
+#include "fileinfo.h"
 
 
 
-
-class filetracker
+class FileTracker
 {
 public:
-    filetracker();
+    FileTracker();
+    void addFile(const QString filePath);
+
+signals:
+    void changed(FileInfo file);
+
+private:
+    QVector<FileInfo> filesArray;
 };
 
 #endif // FILETRACKER_H

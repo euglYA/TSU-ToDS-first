@@ -13,11 +13,14 @@ class FileInfo
 public:
     FileInfo();
     FileInfo(const QString filePath);
+    QString getPath() const;
+    int getSize() const;
+    fileStates getState() const;
 
 private:
-    int _size;
-    QString _path;
-    fileStates _state;
+    int _size = 0;
+    QString _path = "";
+    fileStates _state = fileStates::not_exist;
 };
 
 #endif // FILE_H
