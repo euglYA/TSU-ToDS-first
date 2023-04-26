@@ -16,6 +16,7 @@ public:
     QString getPath() const;
     int getSize() const;
     fileStates getState() const;
+    bool check();
 
 private:
     int _size = 0;
