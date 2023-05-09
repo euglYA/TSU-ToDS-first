@@ -13,6 +13,8 @@ void FileTracker::addFile(const QString filePath) {
     FileInfo file(filePath);
 
     filesArray.append(file);
+
+    emit changed(filesArray[filesArray.size() - 1]);
 }
 
 bool FileTracker::repeatPathCheck(const QString filePath) const {

@@ -42,14 +42,18 @@ bool FileInfo::check() {
 
         if (_size != size) {
             _state = fileStates::changed;
+            _size = size;
+            return true;
         }
 
-        return true;
+        return false;
     }
     else {
-        _state = fileStates::not_exist;
-        _size = 0;
-
+        if (_size != 0) {
+            _state = fileStates::not_exist;
+            _size = 0;
+            return true;
+        }
         return false;
     }
 }
@@ -57,11 +61,11 @@ bool FileInfo::check() {
 std::string FileInfo::stateToString() {
     switch (_state) {
     case fileStates::changed:
-        return "---> changed";
+        return " ---> changed";
     case fileStates::exist:
-        return "---> exist";
+        return " ---> exist";
     case fileStates::not_exist:
-        return "---> not exist";
+        return " ---> not exist";
     default:
         break;
     }
