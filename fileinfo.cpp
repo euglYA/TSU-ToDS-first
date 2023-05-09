@@ -40,20 +40,16 @@ bool FileInfo::check() {
     if (fl.exists()) {
         int size = fl.size();
 
-        switch (_state) {
-        case fileStates::not_exist:
-        case fileStates::exist:
-        case fileStates::changed:
-            if (_size != size) {
-                _state = fileStates::changed;
-                _size = size;
-            }
-            break;
-        default:
-            break;
+        if (_size != size) {
+            _state = fileStates::changed;
         }
+
+        return true;
     }
     else {
+        _state = fileStates::not_exist;
+        _size = 0;
 
+        return false;
     }
 }
