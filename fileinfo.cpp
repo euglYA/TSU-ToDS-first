@@ -1,13 +1,7 @@
 
 #include "fileinfo.h"
 
-FileInfo::FileInfo() {
-    _size = 0;
-    _state = fileStates::not_exist;
-    _path = "";
-}
-
-FileInfo::FileInfo(const QString filePath) {
+FileInfo::FileInfo(const QString& filePath) {
     QFileInfo fl(filePath);
 
     if (fl.exists()) {
@@ -20,6 +14,12 @@ FileInfo::FileInfo(const QString filePath) {
         _path = filePath;
         _state = fileStates::not_exist;
     }
+}
+
+FileInfo::FileInfo(const FileInfo& file) {
+    _path = file._path;
+    _size = file._size;
+    _state = file._state;
 }
 
 QString FileInfo::getPath() const {
@@ -68,5 +68,18 @@ std::string FileInfo::stateToString() {
 
     return "Error, wrong file state";
 }
+
+FileInfo &FileInfo::operator=(const FileInfo &file) {
+
+    if (this == &file)
+        return *this;
+
+    _path = file._path;
+    _size = file._size;
+    _state = file._state;
+
+    return *this;
+}
+
 
 

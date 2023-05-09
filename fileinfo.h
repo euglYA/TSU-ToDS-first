@@ -2,18 +2,21 @@
 #define FILE_H
 #include <QString>
 #include <QFile>
-#include <QDir>
 #include <QFileInfo>
 #include <iostream>
+#include <QObject>
 
 
-class FileInfo
+class FileInfo : public QObject
 {
+Q_OBJECT
+public:
+
     enum class fileStates {exist, not_exist, changed};
 
-public:
     FileInfo() {}
-    FileInfo(const QString filePath);
+    FileInfo(const QString& filePath);
+    FileInfo(const FileInfo& file);
     ~FileInfo() {}
 
     QString getPath() const;
@@ -22,6 +25,9 @@ public:
 
     bool check();
     std::string stateToString();
+
+    FileInfo& operator=(const FileInfo& file);
+
 
 private:
     int _size = 0;

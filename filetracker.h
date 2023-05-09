@@ -6,10 +6,12 @@
 
 
 
-class FileTracker
+class FileTracker : public QObject
 {
+Q_OBJECT
 public:
     FileTracker();
+    ~FileTracker() override;
     void addFile(const QString filePath);
     bool repeatPathCheck(const QString filePath) const;
     void check();
