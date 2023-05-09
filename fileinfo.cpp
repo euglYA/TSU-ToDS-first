@@ -53,3 +53,20 @@ bool FileInfo::check() {
         return false;
     }
 }
+
+std::string FileInfo::stateToString() {
+    switch (_state) {
+    case fileStates::changed:
+        return "---> changed";
+    case fileStates::exist:
+        return "---> exist";
+    case fileStates::not_exist:
+        return "---> not exist";
+    default:
+        break;
+    }
+
+    return "Error, wrong file state";
+}
+
+
