@@ -19,20 +19,19 @@ public:
     FileInfo(const FileInfo& file);
     ~FileInfo() {}
 
-    QString getPath() const;
-    int getSize() const;
-    fileStates getState() const;
-
-    bool check();
+    QString     getPath()   const;
+    int         getSize()   const;
+    fileStates  getState()  const;
+    bool        check();
     std::string stateToString();
 
     FileInfo& operator=(const FileInfo& file);
 
 
 private:
-    int _size = 0;
-    QString _path = "";
-    fileStates _state = fileStates::not_exist;
+    int _size           = 0;
+    QString _path       = "";
+    fileStates _state   = fileStates::not_exist;
 };
 
 #endif // FILE_H

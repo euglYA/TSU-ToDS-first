@@ -7,8 +7,9 @@ FileTracker::~FileTracker() { }
 
 void FileTracker::addFile(const QString filePath) {
 
-    if (repeatPathCheck(filePath))
+    if  (repeatPathCheck(filePath)) {
         return;
+    }
 
     FileInfo file(filePath);
 
