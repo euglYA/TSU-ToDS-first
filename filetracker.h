@@ -2,6 +2,8 @@
 #define FILETRACKER_H
 #include <QMap>
 #include <QVector>
+#include <thread>
+#include <chrono>
 #include "fileinfo.h"
 
 
@@ -15,6 +17,7 @@ public:
     void addFile(const QString filePath);
     bool repeatPathCheck(const QString filePath) const;
     void check();
+    void startChecking();
 
 signals:
     void changed(FileInfo file);

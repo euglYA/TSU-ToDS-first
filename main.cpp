@@ -16,8 +16,7 @@ int main(int argc, char *argv[])
     tracker.addFile("C:\\Users\\euglYA\\Desktop\\zxc1.txt");
     tracker.addFile("C:\\Users\\euglYA\\Desktop\\zxc2.txt");
 
-    while(1)
-        tracker.check();
+    tracker.startChecking();
 
     return a.exec();
 }

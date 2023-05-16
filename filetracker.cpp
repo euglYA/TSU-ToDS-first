@@ -34,3 +34,10 @@ void FileTracker::check() {
         }
     }
 }
+
+void FileTracker::startChecking() {
+    while (1) {
+        this->check();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
+}
