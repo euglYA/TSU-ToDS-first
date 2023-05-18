@@ -17,7 +17,7 @@ public:
     void addFile(const QString filePath);
     bool repeatPathCheck(const QString filePath) const;
     void check();
-    void startChecking();
+    //void startChecking();
 
 signals:
     void changed(FileInfo file);
