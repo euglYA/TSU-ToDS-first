@@ -16,7 +16,10 @@ int main(int argc, char *argv[])
     tracker.addFile("C:\\Users\\euglYA\\Desktop\\zxc1.txt");
     tracker.addFile("C:\\Users\\euglYA\\Desktop\\zxc2.txt");
 
-    tracker.startChecking();
+    while (1) {
+        tracker.check();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
 
     return a.exec();
 }
