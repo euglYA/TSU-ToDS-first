@@ -1,8 +1,6 @@
 
 #include "filetracker.h"
 
-FileTracker* FileTracker::instance = nullptr;
-
 FileTracker::FileTracker() { }
 
 FileTracker::~FileTracker() { }
@@ -35,14 +33,6 @@ void FileTracker::check() {
             emit changed(filesArray[i]);
         }
     }
-}
-
-FileTracker &FileTracker::get() {
-    if (instance == nullptr) {
-        instance = new FileTracker();
-    }
-
-    return *instance;
 }
 
 //void FileTracker::startChecking() {
