@@ -7,8 +7,10 @@ class ConsoleOutput : public QObject
 {
     Q_OBJECT
 public:
-    ~ConsoleOutput();
-    static ConsoleOutput& get();
+    static ConsoleOutput& instance() {
+        static ConsoleOutput instance;
+        return instance;
+    }
 
 public slots:
     void output(FileInfo file);
@@ -16,7 +18,7 @@ public slots:
 
 private:
     ConsoleOutput();
-    static ConsoleOutput *instance;
+    ~ConsoleOutput();
 };
 
 #endif // CONSOLE_OUTPUT_H
