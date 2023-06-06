@@ -12,11 +12,15 @@ class FileTracker : public QObject
 {
 Q_OBJECT
 public:
-    ~FileTracker() override;
     void addFile(const QString filePath);
     bool repeatPathCheck(const QString filePath) const;
     void check();
-    static FileTracker& get();
+
+    static FileTracker& instance() {
+        static FileTracker instance;
+        return instance;
+    }
+
     //void startChecking();
 
 signals:
@@ -24,10 +28,9 @@ signals:
 
 private:
     FileTracker();
+    ~FileTracker();
 
     QVector<FileInfo> filesArray;
-
-    static FileTracker *instance;
 };
 
 #endif // FILETRACKER_H
